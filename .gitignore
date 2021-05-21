@@ -1,4 +1,4 @@
 node_modules
 .env
 .next
-react-jwt-aws-test.cer
+react-aws-test.cer
