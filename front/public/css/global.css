@@ -1,0 +1,15 @@
+header{
+    border-bottom:1px solid #ededed;
+    padding:20px;
+    box-sizing: border-box;
+}
+
+.wrap{
+    padding: 20px;
+}
+
+table th,
+table td{
+    padding:5px;
+    border:1px solid #000;
+}

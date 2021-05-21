@@ -1,0 +1,43 @@
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const config = require('./config');
+
+// REST API
+// app.get    : 가져오다.
+// app.post   : 생성하다
+// app.put    : 전체수정
+// app.delete : 제거
+// app.patch : 부분수정
+// app.options : 서버에 요청 보내면 받아 줄수 있어 ? 라고 확일 할때 사용
+// app.head    : 헤더만 가져온다 .
+// 사용이 애매모호 한 경우에는 Post 사용 하면 된다 .
+
+// 변경사항있을시 자동으로 서버 재실행 : nodemon
+// npm i -D nodemon@2
+// nodemon app 실행
+
+// cors Error : 요청을 보내는 포트의 번호와 요청을 받는 포트의 번호가 서로 다를때 브라우저에서 요청을 차단 함
+// 해결방법 : 서버의 Header 에 cors 설정을 해준다
+// npm i cors
+
+app.use(cors({
+    origin:'*',                     // 추후 우리의 사이트 주소로 수정
+    credential:false
+}));
+
+
+app.set('jwt-secret',config.secret)
+
+// front 에서 넘어온 Data 를 해석해서 req.body~ 에 넣어준다.
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+app.use('/api',require('./routers/api'));
+
+app.listen(3065,()=>{
+    console.log("서버 실행 중")
+})
+
+
+
