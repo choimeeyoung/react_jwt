@@ -3,6 +3,11 @@ const app = express();
 const cors = require('cors');
 const config = require('./config');
 
+//
+const hpp = require('hpp');
+const helmet = require('helmet');
+
+
 // REST API
 // app.get    : 가져오다.
 // app.post   : 생성하다
@@ -20,6 +25,11 @@ const config = require('./config');
 // cors Error : 요청을 보내는 포트의 번호와 요청을 받는 포트의 번호가 서로 다를때 브라우저에서 요청을 차단 함
 // 해결방법 : 서버의 Header 에 cors 설정을 해준다
 // npm i cors
+
+if(process.env.NODE_ENV ==='production'){                       // 배포 모드 일 경우
+    app.use(hpp());
+    app.use(helmet());
+}
 
 app.use(cors({
     origin:'*',                     // 추후 우리의 사이트 주소로 수정
