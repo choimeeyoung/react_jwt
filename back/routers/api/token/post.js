@@ -12,7 +12,7 @@ const postRouter = async (req,res) => {
                 },
                 secret,
                 {
-                    expiresIn: '7d',
+                    expiresIn: '12h',
                     issuer: 'velopert.com',
                     subject: 'userInfo'
                 }, (err,token) =>{
@@ -21,10 +21,12 @@ const postRouter = async (req,res) => {
                 }
             )
         })
+
+        req.session.token = token;
+
         res.status(202).json({
             success: true,
             message:'Token Successfully',
-            token : token
         })
     }catch(error){
         console.log(error)

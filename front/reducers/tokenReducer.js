@@ -3,21 +3,22 @@ import produce from 'immer';
 export const initialState = {
     tokenStatus : "",
     tokenValue :{
+        success:false,
         message:"",
         token:"",
     },
 
-    tokenCheckStatus:"",
+    tokenCheckStatus :"",
     tokenCheckValue:{
         success: false,
-        info: {
-            user_id: "",
+        info :{
+            user_id: '',
             authority: 1,
             iat: 0,
             exp: 0,
-            is: "velopert.com",
-            sub: "userInfo"
-        }
+            iss: '',
+            sub: ''
+        },
     }
 }
 
@@ -27,13 +28,6 @@ export const tokenRequestAction = (data) =>{
         data
     }
 }
-export const tokenCheckRequestAction = (data) => {
-    return {
-        type :'TOKEN_CHECK_REQUEST',
-        data
-    }
-}
-
 
 const reducer = (state = initialState,action) =>{
     return produce(state,(draft) => {

@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const config = require('./config');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
-//
+const dotenv = require('dotenv');
+dotenv.config();
+
 const hpp = require('hpp');
 const helmet = require('helmet');
 
@@ -32,16 +35,26 @@ if(process.env.NODE_ENV ==='production'){                       // 배포 모드
 }
 
 app.use(cors({
-    origin:'*',                     // 추후 우리의 사이트 주소로 수정
-    credential:false
+    origin:'http://localhost:3000',                     // 추후 우리의 사이트 주소로 수정
+    credentials:true                                     // cookies 값을 Front 와 같이 공유 하려고 할때 사용
 }));
 
-
-app.set('jwt-secret',config.secret)
+app.set('jwt-secret',process.env.JWT_SECRET)
 
 // front 에서 넘어온 Data 를 해석해서 req.body~ 에 넣어준다.
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
+// session 설정
+app.use(session({
+    httpOnly:true,
+    secret:process.env.COOKIE_SECRET,
+    resave:true,
+    saveUninitialized:true,
+}))
+
+// cookie parser 설정
+app.use(cookieParser());
 
 app.use('/api',require('./routers/api'));
 

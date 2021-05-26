@@ -1,0 +1,26 @@
+.header{
+    border-bottom:1px solid #ededed;
+    padding:10px;
+    box-sizing: border-box;
+}
+.header p{
+    display: inline-block;
+}
+
+.header span{
+    float: right;
+}
+
+.header ul{
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.header li{
+    width: 25%;
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+}

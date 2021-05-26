@@ -1,47 +1,34 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import AppLayout from "../componets/AppLayout";
 import useInput from "../hooks/useInput";
 import {useDispatch, useSelector} from 'react-redux';
-import {loginRequestAction,resetStateAction} from "../reducers/loginReducer";
+import {loginRequestAction} from "../reducers/loginReducer";
 import {tokenRequestAction} from "../reducers/tokenReducer";
+import Router from "next/router";
+
 
 const Index = () =>{
-    let {loginResult} = useSelector((state) => state.loginReducer);
-    let {tokenValue} = useSelector((state) => state.tokenReducer);
+    let {success , data , message} = useSelector((state) => state.loginReducer.loginResult);
 
-    // 반복되는 코드 => Hooks
     const [userId,onChangeUerId] = useInput('');
     const [userPw,onChangeUerPw] = useInput('');
-    // const [userId,setUserId] = useState('');
-    // const onChangeUserId = useCallback((e) => {
-    //     setUserId(e.target.value);
-    // },[]);
 
     // useDispatch: action 을 reducer 에 dispatch 해줌
     const dispatch = useDispatch();
 
-    useEffect(()=>{
-        if(loginResult.success && loginResult.message){
-            const formData = {
-                user_id : loginResult.data.user_id,
-                authority:loginResult.data.authority
-            }
-            dispatch(tokenRequestAction(formData));
-            window.location.href = '/admin';
-        }else if(!loginResult.success && loginResult.message){
-            dispatch(resetStateAction());
-        }
-    },[loginResult.success,loginResult.message])
-
-    useEffect(() => {
-        if(tokenValue.token){
-            sessionStorage.setItem('token',tokenValue.token)
-        }
-    },[tokenValue.token])
-
-    const loginSubmit =  useCallback(() =>{
+    const loginSubmit = useCallback(() =>{
         dispatch(loginRequestAction({userId,userPw}));
     },[userId,userPw]);
+
+    useEffect(()=>{
+        if(!success && message){
+            alert(message);
+        }else if(success && message){
+            alert(message);
+            dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
+            Router.push('main')
+        }
+    },[success,message])
 
     return (
         <AppLayout>
@@ -60,10 +47,11 @@ const Index = () =>{
                             </tr>
                         </tbody>
                     </table>
-                    <div className="button" onClick={loginSubmit}>버튼</div>
+                    <div className="button" onClick={loginSubmit}>로그인</div>
                 </section>
            </article>
         </AppLayout>
     )
 }
+
 export default Index;

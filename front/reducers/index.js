@@ -1,6 +1,7 @@
 import {HYDRATE} from "next-redux-wrapper";
 import {combineReducers} from 'redux';
 import loginReducer from "./loginReducer";
+import logoutReducer from "./logoutReducer";
 import tokenReducer from "./tokenReducer";
 
 
@@ -27,6 +28,7 @@ const rootReducer = (state,action) => {
         default:{
             const combinedReducer = combineReducers({
                 loginReducer,
+                logoutReducer,
                 tokenReducer
             });
             return combinedReducer(state,action)

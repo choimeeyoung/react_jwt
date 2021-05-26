@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
-
 const getRouter = async (req,res) => {
 
-    const token = req.headers['x-access-token'] || req.query.token
+    const token = req.session.token;
+
     if(!token){
         return res.status(403).json({
             success:false,
@@ -26,10 +26,9 @@ const getRouter = async (req,res) => {
     }catch(error){
         console.log(error)
         res.status(403).json({
-            message : error.message
+            message:error.message
         })
     }
 }
-
 
 module.exports = getRouter;

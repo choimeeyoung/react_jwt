@@ -1,6 +1,7 @@
 import {all,fork} from 'redux-saga/effects';
 import axios from 'axios';
 import loginSaga from "./loginSaga";
+import logoutSaga from "./logoutSaga";
 import tokenSaga from "./tokenSaga";
 
 
@@ -20,9 +21,11 @@ import tokenSaga from "./tokenSaga";
 // throttle : 지정한 시간동안에 한번만 요청이 됨 , [takeLatest , takeLeading 은 요청을 취소하는 것은 아님]
 
 axios.defaults.baseURL = 'https://dev-api.bqu.kr/v1/able/membership';
+
 export default function* rootSaga(){
     yield all([                         // all : 배열로 데이터를 받음 / 배열안의 모든 함수들을 동시에 실행 / fork,call 의 함수를 한번에 실행해 준다 .
         fork(loginSaga),
+        fork(logoutSaga),
         fork(tokenSaga)
     ])
 }

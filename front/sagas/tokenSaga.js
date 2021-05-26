@@ -1,13 +1,12 @@
 import {all,fork,takeLatest,call,put} from 'redux-saga/effects';
 import axios from "axios";
 
-
 function tokenAPI(data){
-     return axios.post('http://localhost:3065/api/token',data)
+     return axios.post('http://localhost:3065/api/token',data,{withCredentials:true})
 }
 
-function tokenCheckAPI(data){
-    return axios.get('http://localhost:3065/api/token',{headers:{'x-access-token':data.token}})
+function tokenCheckAPI(){
+    return axios.get('http://localhost:3065/api/token',{withCredentials:true})
 }
 
 function* token(action){
@@ -24,10 +23,9 @@ function* token(action){
         })
     }
 }
-function* tokenCheck(action){
-
+function* tokenCheck(){
     try{
-        const result = yield call(tokenCheckAPI,action.data);
+        const result = yield call(tokenCheckAPI);
         yield put({
             type: 'TOKEN_CHECK_SUCCESS',
             data: result.data
@@ -39,8 +37,6 @@ function* tokenCheck(action){
         })
     }
 }
-
-
 
 function* watchToken(){
     yield takeLatest('TOKEN_REQUEST', token)        // 'LOGIN_REQUEST' Action 이 실행 되면 login 함수를 실행 하겠음을 의미
