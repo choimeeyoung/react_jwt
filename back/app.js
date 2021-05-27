@@ -58,7 +58,7 @@ app.use(cookieParser());
 
 app.use('/api',require('./routers/api'));
 
-app.listen(3060,()=>{
+app.listen(80,()=>{
     console.log("서버 실행 중")
 })
 
