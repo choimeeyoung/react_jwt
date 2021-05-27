@@ -30,6 +30,7 @@
     "webpack": "^5.37.1"
   },
   "devDependencies": {
+    "compression-webpack-plugin": "^8.0.0",
     "react-cookie": "^4.0.3"
   }
 }
