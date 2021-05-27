@@ -34,10 +34,7 @@ if(process.env.NODE_ENV === 'production'){                       // 배포 모�
     app.use(helmet());
 }
 
-app.use(cors({
-    origin: 'http://localhost:3000',           // 추후 우리의 사이트 주소로 수정
-    credentials:true                                                    // cookies 값을 Front 와 같이 공유 하려고 할때 사용
-}));
+
 
 app.set('jwt-secret','SeCrEtKeYfOrHaShInG')
 
@@ -47,6 +44,12 @@ app.use(express.urlencoded({extended:true}));
 
 // cookie parser 설정
 app.use(cookieParser('cmyreactjwt'));
+
+
+app.use(cors({
+    origin: true,           // 추후 우리의 사이트 주소로 수정
+    credentials:true                                                    // cookies 값을 Front 와 같이 공유 하려고 할때 사용
+}));
 
 // session 설정
 app.use(session({
