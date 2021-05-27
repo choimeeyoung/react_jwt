@@ -50,6 +50,7 @@ app.use(cookieParser());
 
 // session 설정
 app.use(session({
+    httpOnly: false,
     secret:'cmyreactjwt',
     saveUninitialized: false,
     resave: false,
