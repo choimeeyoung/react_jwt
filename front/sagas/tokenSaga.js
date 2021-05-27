@@ -2,6 +2,7 @@ import {all,fork,takeLatest,call,put} from 'redux-saga/effects';
 import axios from "axios";
 
 function tokenAPI(data){
+    console.log("?????")
      return axios.post('http://15.164.95.180/api/token',data,{withCredentials:true})
 }
 
