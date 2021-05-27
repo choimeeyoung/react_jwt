@@ -4,6 +4,9 @@ const withBundleAnalyser = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyser({
+    future :{
+      webpack5:true
+    },
     webpack(config,{webpack}){
         const prod = process.env.NODE_ENV === 'production';
         const plugins = [...config.plugins];
