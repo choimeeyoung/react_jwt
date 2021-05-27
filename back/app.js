@@ -46,17 +46,17 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 // cookie parser 설정
-app.use(cookieParser());
+app.use(cookieParser('cmyreactjwt'));
 
 // session 설정
 app.use(session({
     httpOnly: true,
-    secret:'cmyreactjwt',
     saveUninitialized: false,
     resave: false,
     cookie: {
         httpOnly: true,
         secure: false,
+
     },
 }))
 
