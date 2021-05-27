@@ -47,10 +47,14 @@ app.use(express.urlencoded({extended:true}));
 
 // session 설정
 app.use(session({
-    httpOnly:true,
     secret:'cmyreactjwt',
-    resave:true,
-    saveUninitialized:true,
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        domain: process.env.NODE_ENV === 'production' && 'http:localhost:3000'
+    },
 }))
 
 // cookie parser 설정
