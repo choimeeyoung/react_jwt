@@ -11,6 +11,8 @@ const getRouter = async (req,res) => {
     }
 
     try{
+        console.log("===========?>")
+        console.log(token)
         const decodedToken = await new Promise(
             (resolve,reject) => {
                 jwt.verify(token,req.app.get('jwt-secret'),(err,decoded) =>{

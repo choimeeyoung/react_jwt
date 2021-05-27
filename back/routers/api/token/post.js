@@ -4,6 +4,7 @@ const postRouter = async (req,res) => {
     const user = req.body
     const secret = req.app.get('jwt-secret');
     try{
+
         const token =  await new Promise((resolve,reject) =>{
             jwt.sign(
                 {
@@ -23,7 +24,8 @@ const postRouter = async (req,res) => {
         })
 
         req.session.token = token;
-
+        console.log("==============")
+        console.log(token)
         res.status(202).json({
             success: true,
             message:'Token Successfully',
