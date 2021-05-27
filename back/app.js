@@ -50,10 +50,6 @@ app.use(session({
     secret:'cmyreactjwt',
     saveUninitialized: false,
     resave: false,
-    cookie: {
-        httpOnly: true,
-        secure: false,
-    },
 }))
 
 // cookie parser 설정
