@@ -48,7 +48,7 @@ app.use(express.urlencoded({extended:true}));
 // session 설정
 app.use(session({
     httpOnly:true,
-    secret:process.env.COOKIE_SECRET,
+    secret:'cmyreactjwt',
     resave:true,
     saveUninitialized:true,
 }))
@@ -58,7 +58,7 @@ app.use(cookieParser());
 
 app.use('/api',require('./routers/api'));
 
-app.listen(3065,()=>{
+app.listen(3060,()=>{
     console.log("서버 실행 중")
 })
 
