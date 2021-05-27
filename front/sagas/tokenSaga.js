@@ -12,9 +12,7 @@ function tokenCheckAPI(){
 function* token(action){
     try{
         const result = yield call(tokenAPI,action.data);
-        console.log("====================")
-        console.log(result.data)
-        console.log("====================")
+
         yield put({
             type: 'TOKEN_SUCCESS',
             data: result.data
@@ -45,6 +43,7 @@ function* watchToken(){
     yield takeLatest('TOKEN_REQUEST', token)        // 'LOGIN_REQUEST' Action 이 실행 되면 login 함수를 실행 하겠음을 의미
 }
 function* watchCheckToken(){
+    console.log("TOKEN_CHECK_REQUEST")
     yield takeLatest('TOKEN_CHECK_REQUEST', tokenCheck)
 }
 
