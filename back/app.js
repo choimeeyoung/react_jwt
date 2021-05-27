@@ -29,7 +29,7 @@ const helmet = require('helmet');
 // 해결방법 : 서버의 Header 에 cors 설정을 해준다
 // npm i cors
 
-if(process.env.NODE_ENV ==='production'){                       // 배포 모드 일 경우
+if(process.env.NODE_ENV === 'production'){                       // 배포 모드 일 경우
     app.use(hpp());
     app.use(helmet());
 }
@@ -45,19 +45,26 @@ app.set('jwt-secret','SeCrEtKeYfOrHaShInG')
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+// cookie parser 설정
+app.use(cookieParser());
+
 // session 설정
 app.use(session({
     secret:'cmyreactjwt',
     saveUninitialized: false,
     resave: false,
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        domain: 'http://localhost:3000'
+    },
 }))
 
-// cookie parser 설정
-app.use(cookieParser());
+
 
 app.use('/api',require('./routers/api'));
 
-app.listen(80,()=>{
+app.listen(3060,()=>{
     console.log("서버 실행 중")
 })
 
