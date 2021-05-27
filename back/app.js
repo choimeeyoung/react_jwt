@@ -39,7 +39,7 @@ app.use(cors({
     credentials:true                                     // cookies 값을 Front 와 같이 공유 하려고 할때 사용
 }));
 
-app.set('jwt-secret',process.env.JWT_SECRET)
+app.set('jwt-secret','SeCrEtKeYfOrHaShInG')
 
 // front 에서 넘어온 Data 를 해석해서 req.body~ 에 넣어준다.
 app.use(express.json());

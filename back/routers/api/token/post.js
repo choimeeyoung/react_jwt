@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 const postRouter = async (req,res) => {
-    console.log("??????")
     const user = req.body
     const secret = req.app.get('jwt-secret');
     try{
