@@ -53,6 +53,10 @@ app.use(session({
     secret:'cmyreactjwt',
     saveUninitialized: false,
     resave: false,
+    cookie: {
+        httpOnly: false,
+        secure: false,
+    },
 }))
 
 

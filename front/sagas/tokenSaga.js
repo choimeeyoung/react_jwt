@@ -3,7 +3,7 @@ import axios from "axios";
 
 function tokenAPI(data){
     console.log("????")
-     return axios.post('http://15.164.95.180/api/token',data,{withCredentials:true})
+     return axios.post('http://localhost:3060/api/token',data,{withCredentials:true})
 }
 
 function tokenCheckAPI(){
