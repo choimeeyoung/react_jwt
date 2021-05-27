@@ -7,13 +7,13 @@ function tokenAPI(data){
 }
 
 function tokenCheckAPI(){
+    console.log("???????")
     return axios.get('http://15.164.95.180/api/token',{withCredentials:true})
 }
 
 function* token(action){
     try{
         const result = yield call(tokenAPI,action.data);
-        console.log(result);
         yield put({
             type: 'TOKEN_SUCCESS',
             data: result.data
