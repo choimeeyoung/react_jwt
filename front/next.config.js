@@ -4,9 +4,6 @@ const withBundleAnalyser = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyser({
-    future :{
-      webpack5:true
-    },
     webpack(config,{webpack,dev}){
         const prod = process.env.NODE_ENV === 'production';
         const plugins = [...config.plugins];
@@ -20,7 +17,7 @@ module.exports = withBundleAnalyser({
         return {
             ...config,
             mode:prod ? 'production':'development',
-            devtool: prod ? 'hidden-source-map' : 'inline-source-map',
+            devtool: prod ? 'hidden-source-map' : 'eval-source-map',
             plugins
         }
     }
