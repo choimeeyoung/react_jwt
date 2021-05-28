@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const getRouter = async (req,res) => {
-    console.log("?????")
     const token = req.session.token;
 
     if(!token){
