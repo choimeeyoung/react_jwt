@@ -23,6 +23,7 @@ const postRouter = async (req,res) => {
         })
 
         req.session.token = token;
+        console.log(token)
         res.status(202).json({
             success: true,
             message:'Token Successfully',
