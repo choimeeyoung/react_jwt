@@ -39,7 +39,6 @@ app.set('jwt-secret','SeCrEtKeYfOrHaShInG')
 // front 에서 넘어온 Data 를 해석해서 req.body~ 에 넣어준다.
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.set('trust proxy', 1) // trust first proxy
 
 
 // cookie parser 설정
