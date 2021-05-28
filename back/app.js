@@ -56,7 +56,8 @@ app.use(session({
     cookie: {
         httpOnly: true,
         secure: false,
-        domain: 'http://localhost:3000'
+        domain: 'http://localhost:3000',
+        path: '/'
     },
 }))
 
