@@ -58,7 +58,9 @@ app.use(session({
 }))
 
 app.use('/api',require('./routers/api'));
-
+app.get('/',(req,res)=>{
+    res.send('hello Express')
+})
 app.listen(80,()=>{
     console.log("서버 실행 중")
 })
