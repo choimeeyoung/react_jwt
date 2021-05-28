@@ -45,8 +45,10 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser('cmyreactjwt'));
 
 app.use(cors({
-    origin: 'http://54.180.92.229',           // 추후 우리의 사이트 주소로 수정
-    credentials:true,                                                    // cookies 값을 Front 와 같이 공유 하려고 할때 사용
+    origin: '*',           // 추후 우리의 사이트 주소로 수정
+    credentials:true,      // cookies 값을 Front 와 같이 공유 하려고 할때 사용
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+
 }));
 
 // session 설정
