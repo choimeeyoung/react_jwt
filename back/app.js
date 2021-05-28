@@ -55,13 +55,13 @@ app.use(session({
     resave: false,
     cookie: {
         httpOnly: true,
-        secure: false,
+        secure: true,
         domain: 'http://localhost:3000',
         path: '/'
     },
 }))
 
-
+app.set('trust proxy', 1) // trust first proxy
 
 app.use('/api',require('./routers/api'));
 
