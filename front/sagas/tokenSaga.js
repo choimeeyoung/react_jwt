@@ -6,11 +6,7 @@ function tokenAPI(data){
 }
 
 function tokenCheckAPI(){
-    try{
-        axios.get('http://15.164.95.180/api/token',{withCredentials:true})
-    }catch(error){
-        console.log(error)
-    }
+    return axios.get('http://15.164.95.180/api/token',{withCredentials:true})
 }
 
 function* token(action){
