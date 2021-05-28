@@ -56,8 +56,8 @@ app.use(session({
     resave: false,
     cookie: {
         httpOnly: true,
-        secure: false,
-        sameSite:'none',
+        secure: true,
+        sameSite:'None',
     },
 }))
 
