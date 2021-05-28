@@ -53,12 +53,7 @@ app.use(session({
     httpOnly: true,
     saveUninitialized: false,
     resave: false,
-    cookie: {
-        httpOnly: true,
-        secure: true,
-        domain: 'http://localhost:3000',
-        path: '/'
-    },
+
 }))
 
 app.set('trust proxy', 1) // trust first proxy
