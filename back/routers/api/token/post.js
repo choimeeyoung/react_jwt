@@ -27,6 +27,7 @@ const postRouter = async (req,res) => {
         res.status(202).json({
             success: true,
             message:'Token Successfully',
+            token : token
         })
     }catch(error){
         console.log(error)
