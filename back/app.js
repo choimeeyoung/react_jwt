@@ -55,12 +55,6 @@ app.use(session({
     httpOnly: false,
     saveUninitialized: false,
     resave: false,
-    cookie: {
-        httpOnly: false,
-        secure: false,
-        domain: 'http://127.0.0.1:3000',
-        path: '/'
-    },
 }))
 
 
