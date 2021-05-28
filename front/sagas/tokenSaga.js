@@ -2,12 +2,12 @@ import {all,fork,takeLatest,call,put} from 'redux-saga/effects';
 import axios from "axios";
 
 function tokenAPI(data){
-     return axios.post('http://localhost:3060/api/token',data,{withCredentials:true})
+     return axios.post('http://15.164.95.180/api/token',data,{withCredentials:true})
 }
 
 function tokenCheckAPI(){
     try{
-        axios.get('http://localhost:3060/api/token',{withCredentials:true})
+        axios.get('http://15.164.95.180:3060/api/token',{withCredentials:true})
     }catch(error){
         console.log(error)
     }
