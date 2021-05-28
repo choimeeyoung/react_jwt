@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const getRouter = async (req,res) => {
-    console.log("getRouter")
+    console.log("?????")
     const token = req.session.token;
 
     if(!token){
@@ -11,8 +11,6 @@ const getRouter = async (req,res) => {
     }
 
     try{
-
-        console.log(token)
         const decodedToken = await new Promise(
             (resolve,reject) => {
                 jwt.verify(token,req.app.get('jwt-secret'),(err,decoded) =>{

@@ -20,7 +20,9 @@ const Main = () =>{
 export const getServerSideProps =  wrapper.getServerSideProps(async (context)=>{
     const cookie = context.req ? context.req.headers.cookie : '';
     axios.defaults.headers.Cookie = cookie;
-
+    console.log("==========================")
+    console.log(cookie)
+    console.log("==========================")
     context.store.dispatch({
         type:'TOKEN_CHECK_REQUEST',
     })
