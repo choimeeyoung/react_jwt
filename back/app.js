@@ -34,8 +34,6 @@ if(process.env.NODE_ENV === 'production'){                       // 배포 모�
     app.use(helmet());
 }
 
-
-
 app.set('jwt-secret','SeCrEtKeYfOrHaShInG')
 
 // front 에서 넘어온 Data 를 해석해서 req.body~ 에 넣어준다.
@@ -47,7 +45,7 @@ app.use(cookieParser('cmyreactjwt'));
 
 
 app.use(cors({
-    origin: ['http://localhost:3000/','http://54.180.92.229'],           // 추후 우리의 사이트 주소로 수정
+    origin: 'http://localhost:3000',           // 추후 우리의 사이트 주소로 수정
     credentials:true                                                    // cookies 값을 Front 와 같이 공유 하려고 할때 사용
 }));
 
@@ -59,7 +57,6 @@ app.use(session({
     cookie: {
         httpOnly: true,
         secure: false,
-        domain: 'http://54.180.92.229'
     },
 }))
 
