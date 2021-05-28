@@ -38,6 +38,7 @@ const reducer = (state = initialState,action) =>{
                 draft.tokenStatus = '토큰 요청중'
                 break;
             case 'TOKEN_SUCCESS':
+                console.log(action.data)
                 draft.tokenStatus = '토큰 요청성공'
                 draft.tokenValue = action.data
                 break;
