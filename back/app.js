@@ -39,6 +39,8 @@ app.set('jwt-secret','SeCrEtKeYfOrHaShInG')
 // front 에서 넘어온 Data 를 해석해서 req.body~ 에 넣어준다.
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.set('trust proxy', 1) // trust first proxy
+
 
 // cookie parser 설정
 app.use(cookieParser('cmyreactjwt'));
@@ -50,18 +52,18 @@ app.use(cors({
 
 // session 설정
 app.use(session({
-    httpOnly: true,
+    httpOnly: false,
     saveUninitialized: false,
     resave: false,
     cookie: {
-        httpOnly: true,
+        httpOnly: false,
         secure: false,
         domain: 'http://127.0.0.1:3000',
         path: '/'
     },
 }))
 
-app.set('trust proxy', 1) // trust first proxy
+
 
 app.use('/api',require('./routers/api'));
 
