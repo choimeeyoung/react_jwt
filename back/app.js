@@ -44,7 +44,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser('cmyreactjwt'));
 
 app.use(cors({
-    origin: true,           // 추후 우리의 사이트 주소로 수정
+    origin: 'http://localhost:3000',           // 추후 우리의 사이트 주소로 수정
     credentials:true                                                    // cookies 값을 Front 와 같이 공유 하려고 할때 사용
 }));
 
@@ -63,7 +63,7 @@ app.use(session({
 
 app.use('/api',require('./routers/api'));
 
-app.listen(3060,()=>{
+app.listen(80,()=>{
     console.log("서버 실행 중")
 })
 
