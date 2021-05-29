@@ -25,14 +25,15 @@ const Index = () =>{
             alert(message);
         }else if(success && message){
             dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
-            alert(message);
-
+             alert(message);
+            console.log(data.user_id)
             // location.href ='main'
         }
     },[success,message])
 
 
     useEffect(() => {
+        console.log("???")
         if(data.user_id && data.authority){
             alert("이동")
         }
