@@ -18,6 +18,7 @@ const Main = () =>{
 // getStaticProps : 거의 없음 / 블로그 글 / 바뀌는 정보가 매번 바뀌지 않을 때 사용
 // getServerSideProps : 그때 그때 정보가 달라질때 , 즉 Server 에서 계속 새로운 정보를 가져와야 될때 사용
 export const getServerSideProps = wrapper.getServerSideProps(async (context)=>{
+    console.log("??????")
     const cookie = context.req ? context.req.headers.cookie : '';
     axios.defaults.headers.Cookie = cookie;
     context.store.dispatch({
