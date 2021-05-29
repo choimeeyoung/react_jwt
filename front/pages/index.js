@@ -20,11 +20,11 @@ const Index = () =>{
         dispatch(loginRequestAction({userId,userPw}));
     },[userId,userPw]);
 
-    useEffect(()=>{
+    useEffect(async ()=>{
         if(!success && message){
             alert(message);
         }else if(success && message){
-            dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
+            await dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
             alert(message);
             location.href ='main'
         }
