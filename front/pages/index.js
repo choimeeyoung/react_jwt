@@ -9,7 +9,7 @@ import Router from "next/router";
 
 const Index = () =>{
     let {success , data , message} = useSelector((state) => state.loginReducer.loginResult);
-
+    let { token } = useSelector((state) => state.tokenReducer.tokenValue)
     const [userId,onChangeUerId] = useInput('');
     const [userPw,onChangeUerPw] = useInput('');
 
@@ -33,11 +33,10 @@ const Index = () =>{
 
 
     useEffect(() => {
-        console.log("???")
-        if(data.user_id && data.authority){
+        if(token != ""){
             alert("이동")
         }
-    },[data.user_id,data.authority])
+    },[token])
 
 
     return (
