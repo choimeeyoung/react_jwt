@@ -26,7 +26,7 @@ const Index = () =>{
         }else if(success && message){
             dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
             alert(message);
-            Router.push('main')
+            location.href ='main'
         }
     },[success,message])
 
