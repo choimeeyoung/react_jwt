@@ -27,7 +27,7 @@ const Index = () =>{
             alert(message);
             dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
 
-            // Router.push('main')
+            Router.push('main')
         }
     },[success,message])
 
