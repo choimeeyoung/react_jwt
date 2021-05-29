@@ -56,7 +56,7 @@ app.use(session({
     resave: false,
     cookie: {
         httpOnly: true,
-        domain: process.env.NODE_ENV === 'production' && 'http://cmyreact.com'
+        secure: false,
     },
 }))
 
