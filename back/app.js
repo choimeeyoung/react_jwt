@@ -57,7 +57,6 @@ app.use(session({
     cookie: {
         httpOnly: true,
         secure: false,
-        domain: 'http://cmyreact.com'
     },
 }))
 
