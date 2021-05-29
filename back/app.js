@@ -57,12 +57,10 @@ app.use(session({
     cookie: {
         httpOnly: true,
         secure: false,
-        domain: '.cmyreact.com'
+        domain: 'http://cmyreact.com'
     },
 }))
-app.get('/',(req,res)=>{
-    return res.status(404).redirect('../front/pages/_app.js')
-})
+
 app.use('/api',require('./routers/api'));
 app.listen(80,()=>{
     console.log("서버 실행 중")
