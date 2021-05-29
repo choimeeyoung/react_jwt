@@ -35,7 +35,7 @@ const Index = () =>{
         <AppLayout>
            <article className="wrap">
                 <section id="loginForm">
-                    <h2>로그인</h2>
+                    <h2>로그인입니다.</h2>
                     <table>
                         <tbody>
                             <tr>
