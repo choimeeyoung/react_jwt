@@ -54,10 +54,6 @@ app.use(session({
     httpOnly: false,
     saveUninitialized: false,
     resave: false,
-    cookie: {
-        httpOnly: true,
-        secure: false,
-    },
 }))
 
 app.use('/api',require('./routers/api'));
