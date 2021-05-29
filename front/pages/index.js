@@ -26,9 +26,18 @@ const Index = () =>{
         }else if(success && message){
             dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
             alert(message);
-            location.href ='main'
+
+            // location.href ='main'
         }
     },[success,message])
+
+
+    useEffect(() => {
+        if(data.user_id && data.authority){
+            alert("이동")
+        }
+    },[])
+
 
     return (
         <AppLayout>
