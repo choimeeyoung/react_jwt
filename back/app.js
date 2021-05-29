@@ -45,7 +45,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser('cmyreactjwt'));
 
 app.use(cors({
-    origin: 'http://cmyreact.com',           // 추후 우리의 사이트 주소로 수정
+    origin: 'cmyreact.com',           // 추후 우리의 사이트 주소로 수정
     credentials:true,      // cookies 값을 Front 와 같이 공유 하려고 할때 사용
 }));
 
@@ -54,6 +54,11 @@ app.use(session({
     httpOnly: false,
     saveUninitialized: false,
     resave: false,
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        domain: 'cmyreact.com'
+    },
 }))
 
 app.use('/api',require('./routers/api'));
