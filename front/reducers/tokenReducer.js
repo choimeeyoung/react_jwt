@@ -52,6 +52,7 @@ const reducer = (state = initialState,action) =>{
             case 'TOKEN_CHECK_SUCCESS':
                 draft.tokenCheckStatus ='토큰확인 요청성공'
                 draft.tokenCheckValue = action.data
+                console.log(action.data)
                 break;
             case 'TOKEN_CHECK_FAIL':
                 draft.tokenCheckStatus ='토큰확인 요청실패'
