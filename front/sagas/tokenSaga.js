@@ -2,17 +2,16 @@ import {all,fork,takeLatest,call,put} from 'redux-saga/effects';
 import axios from "axios";
 
 function tokenAPI(data){
-     return axios.post('http://54.180.121.250/api/token',data,{withCredentials:true})
+     return axios.post('http://localhost:80/api/token',data,{withCredentials:true})
 }
 
 function tokenCheckAPI(){
-    return axios.get('http://54.180.121.250/api/token',{withCredentials:true})
+    return axios.get('http://localhost:80/api/token',{withCredentials:true})
 }
 
 function* token(action){
     try{
         const result = yield call(tokenAPI,action.data);
-        console.log(result);
         yield put({
             type: 'TOKEN_SUCCESS',
             data: result.data
