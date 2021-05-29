@@ -34,7 +34,7 @@ const Index = () =>{
 
     useEffect(() => {
         if(token != ""){
-            alert("이동")
+            location.href ='main'
         }
     },[token])
 
