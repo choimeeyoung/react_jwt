@@ -24,7 +24,7 @@ const Index = () =>{
         if(!success && message){
             alert(message);
         }else if(success && message){
-            dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
+            // dispatch(tokenRequestAction({user_id:data.user_id,authority:data.authority}))
             alert(message);
             location.href ='main'
         }
