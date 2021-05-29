@@ -36,7 +36,7 @@ const Index = () =>{
         if(data.user_id && data.authority){
             alert("이동")
         }
-    },[])
+    },[data.user_id,data.authority])
 
 
     return (
