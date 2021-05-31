@@ -32,11 +32,11 @@ const Index = () =>{
     },[success,message])
 
 
-    useEffect(() => {
-        if(token != ""){
-            location.href ='main'
-        }
-    },[token])
+    // useEffect(() => {
+    //     if(token != ""){
+    //         location.href ='main'
+    //     }
+    // },[token])
 
 
     return (
