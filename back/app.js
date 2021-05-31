@@ -54,11 +54,11 @@ app.use(session({
     httpOnly: false,
     saveUninitialized: false,
     resave: false,
-    cookie: {
-        httpOnly: true,
-        secure: false,
-        domain: '.cmyreact.com'
-    },
+    // cookie: {
+    //     httpOnly: true,
+    //     secure: false,
+    //     domain: '.cmyreact.com'
+    // },
 }))
 
 app.use('/api',require('./routers/api'));
